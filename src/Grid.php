@@ -242,7 +242,7 @@ abstract class Grid implements Htmlable, GridInterface, GridButtonsInterface, Gr
     {
         $gridName = $this->name;
         return function () use ($gridName) {
-            return Str::plural(Str::slug($gridName, '_'));
+            return Str::snake(Str::pluralStudly($gridName));
         };
     }
 
