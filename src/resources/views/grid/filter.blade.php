@@ -10,7 +10,7 @@
     @endif
     @if($loop->last)
         <th class="{{ $grid->getGridFilterFieldColumnClass() }}">
-            <div class="pull-right">
+            <div class="float-right">
                 <button type="submit"
                         class="btn btn-outline-primary grid-filter-button"
                         title="filter data"

@@ -1,5 +1,5 @@
 @if($grid->wantsPagination() && !$grid->gridNeedsSimplePagination())
-    <div class="pull-{{ $direction }}">
+    <div class="float-{{ $direction }}">
         <b>
             @if($grid->getData()->total() <= $grid->getData()->perpage())
                 @if(!isset($atFooter))
@@ -17,14 +17,14 @@
 @else
     @if(isset($atFooter))
         @if($grid->getData()->count() >= $grid->getData()->perpage())
-            <div class="pull-{{ $direction }}">
+            <div class="float-{{ $direction }}">
                 <b>
                     Showing {{ $grid->getData()->count() }} records for this page.
                 </b>
             </div>
         @endif
     @else
-        <div class="pull-{{ $direction }}">
+        <div class="float-{{ $direction }}">
             <b>
                 Showing {{ $grid->getData()->count() }} records for this page.
             </b>

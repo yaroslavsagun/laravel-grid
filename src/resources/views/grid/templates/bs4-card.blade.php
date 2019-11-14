@@ -2,7 +2,7 @@
     <div class="col-md-12 col-xs-12 col-sm-12">
         <div class="card">
             <div class="card-header">
-                <div class="pull-left">
+                <div class="float-left">
                     <h4 class="grid-title">{{ $grid->renderTitle() }}</h4>
                 </div>
                 {!! $grid->renderPaginationInfoAtHeader() !!}

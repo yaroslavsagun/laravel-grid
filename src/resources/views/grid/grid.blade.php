@@ -7,18 +7,26 @@
 
         @if($grid->hasButtons('toolbar'))
             <div class="col-md-{{ $grid->getGridToolbarSize()[1] }}">
-                <div class="pull-right">
+                <div class="float-right">
+                    <label for="grid-filter-page_size" title="Applies with filters">Page Size: </label>
+                    <select name="page_size" id="grid-filter-page_size" form="{{ $grid->getFilterFormId() }}" class="" title="Applies with filters">
+                        @foreach([50 => 50, 100 => 100, 200 => 200, 500 => 500] as $k => $v)
+                            @if((request('page_size') !== null && request('page_size') == $k) || $grid->getGridPaginationPageSize() == $k)
+                                <option value="{{ $k }}" selected>{{ $v }}</option>
+                            @else
+                                <option value="{{ $k }}">{{ $v }}</option>
+                            @endif
+                        @endforeach
+                    </select>
                     @foreach($grid->getButtons('toolbar') as $button)
                         {!! $button->render() !!}
                     @endforeach
                 </div>
             </div>
         @endif
-
     </div>
-    @if($grid->shouldRenderSearchForm())
+
     <form action="{{ $grid->getSearchUrl() }}" method="GET" id="{{ $grid->getFilterFormId() }}"></form>
-    @endif
     <div class="table-responsive grid-wrapper">
         <table class="{{ $grid->getClass() }}">
             <thead class="{{ $grid->getHeaderClass() }}">
@@ -129,7 +137,7 @@
                                 @endif
                                 @if($loop->last && $grid->hasButtons('rows'))
                                     <td>
-                                        <div class="pull-right">
+                                        <div class="float-right">
                                             @foreach($grid->getButtons('rows') as $button)
                                                 @if(call_user_func($button->renderIf, $grid->transformName(), $item))
                                                     {!! $button->render(['gridName' => $grid->transformName(), 'gridItem' => $item]) !!}
