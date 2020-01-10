@@ -182,17 +182,17 @@
                                     @endif
                                 @endif
                                 {{--@if($loop->last && $grid->hasButtons('rows'))--}}
-                                {{--<td>--}}
-                                {{--<div class="float-right">--}}
-                                {{--@foreach($grid->getButtons('rows') as $button)--}}
-                                {{--@if(call_user_func($button->renderIf, $grid->transformName(), $item))--}}
-                                {{--{!! $button->render(['gridName' => $grid->transformName(), 'gridItem' => $item]) !!}--}}
-                                {{--@else--}}
-                                {{--@continue--}}
-                                {{--@endif--}}
-                                {{--@endforeach--}}
-                                {{--</div>--}}
-                                {{--</td>--}}
+                                    {{--<td>--}}
+                                        {{--<div class="float-right">--}}
+                                            {{--@foreach($grid->getButtons('rows') as $button)--}}
+                                                {{--@if(call_user_func($button->renderIf, $grid->transformName(), $item))--}}
+                                                    {{--{!! $button->render(['gridName' => $grid->transformName(), 'gridItem' => $item]) !!}--}}
+                                                {{--@else--}}
+                                                    {{--@continue--}}
+                                                {{--@endif--}}
+                                            {{--@endforeach--}}
+                                        {{--</div>--}}
+                                    {{--</td>--}}
                                 {{--@endif--}}
                             @endforeach
                         </tr>

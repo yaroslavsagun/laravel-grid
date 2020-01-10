@@ -110,6 +110,7 @@ trait CreatesColumns
                 ->setUseRawFormat($columnData['raw'] ?? false)
                 ->setFilter($filter)
                 ->setIsExportable($columnData['export'] ?? true)
+                ->setIsLinkable($columnData['linkable'] ?? false)
                 ->setExtra($this->getExtras($columnData))
                 ->setFooter($footer);
 
