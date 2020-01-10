@@ -276,7 +276,6 @@ trait RendersGrid
     {
         $params = func_get_args();
         $data = [
-            'colSize' => $this->getGridToolbarSize()[0], // size
             'action' => $this->getSearchUrl(),
             'id' => $this->getSearchFormId(),
             'name' => $this->getGridSearchParam(),

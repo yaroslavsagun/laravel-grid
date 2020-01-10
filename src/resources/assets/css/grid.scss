@@ -4,6 +4,9 @@
  */
 .laravel-grid {
 
+  font-size: 0.800rem;
+  line-height: 1.4;
+
   .grid-w-70 {
     width: 70% !important;
   }
@@ -74,7 +77,6 @@
 
   .grid-filter-button {
     cursor: pointer;
-    font-size: 12px;
   }
 
   .grid-row-button {
@@ -83,5 +85,18 @@
 
   .grid-wrapper {
     margin-top: 20px;
+  }
+
+  .table th, .table td {
+    padding: 0.4rem;
+  }
+
+  .form-control {
+    padding: 0.2rem 0.3rem;
+  }
+
+  .page-size-wrapper {
+    display: inline-block;
+    margin-left: 20px;
   }
 }

@@ -62,6 +62,11 @@ class Column
     private $isExportable;
 
     /**
+     * @var boolean
+     */
+    private $isLinkable;
+
+    /**
      * @var array|mixed
      */
     private $extra;
@@ -307,6 +312,24 @@ class Column
     public function setIsExportable(bool $isExportable): Column
     {
         $this->isExportable = $isExportable;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isLinkable(): bool
+    {
+        return $this->isLinkable;
+    }
+
+    /**
+     * @param bool $isLinkable
+     * @return Column
+     */
+    public function setIsLinkable(bool $isLinkable): Column
+    {
+        $this->isLinkable = $isLinkable;
         return $this;
     }
 }

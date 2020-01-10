@@ -175,9 +175,9 @@
 @push('grid_js')
     <script>
       (function($) {
-        var grid = "{{ '#' . $grid->getId() }}";
-        var filterForm = "{{ '#' . $grid->getFilterFormId() }}";
-        var searchForm = "{{ '#' . $grid->getSearchFormId() }}";
+        let grid = "{{ '#' . $grid->getId() }}";
+        let filterForm = "{{ '#' . $grid->getFilterFormId() }}";
+        let searchForm = "{{ '#' . $grid->getSearchFormId() }}";
         _grids.grid.init({
           id: grid,
           filterForm: filterForm,

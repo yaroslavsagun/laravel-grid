@@ -44,6 +44,13 @@ trait ConfiguresRoutes
     protected $deleteRouteName;
 
     /**
+     * Route name for multiple deleting
+     *
+     * @var string
+     */
+    protected $multipleDeleteRouteName;
+
+    /**
      * Sort url
      *
      * @var string
@@ -224,6 +231,31 @@ trait ConfiguresRoutes
     public function setDeleteRouteName(string $deleteRouteName): void
     {
         $this->deleteRouteName = $deleteRouteName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMultipleDeleteRouteName(): string
+    {
+        return $this->multipleDeleteRouteName;
+    }
+
+    /**
+     * @param array $params
+     * @return string
+     */
+    public function getMultipleDeleteUrl(array $params = []): string
+    {
+        return route($this->getMultipleDeleteRouteName(), add_query_param($params));
+    }
+
+    /**
+     * @param string $multipleDeleteRouteName
+     */
+    public function setMultipleDeleteRouteName(string $multipleDeleteRouteName): void
+    {
+        $this->multipleDeleteRouteName = $multipleDeleteRouteName;
     }
 
     /**

@@ -54,11 +54,28 @@
   font-size: 12px; }
 
 .laravel-grid .grid-filter-button {
-  cursor: pointer;
-  font-size: 12px; }
+  cursor: pointer; }
 
 .laravel-grid .grid-row-button {
   font-size: 11px; }
 
 .laravel-grid .grid-wrapper {
   margin-top: 20px; }
+
+.laravel-grid .table th, .laravel-grid .table td {
+  padding: 0.4rem;
+}
+
+.laravel-grid .form-control {
+  padding: 0.2rem 0.3rem;
+}
+
+.laravel-grid {
+  font-size: 0.800rem;
+  line-height: 1.4;
+}
+
+.laravel-grid .page-size-wrapper {
+  display: inline-block;
+  margin-left: 20px;
+}
