@@ -42,6 +42,14 @@ abstract class Grid implements Htmlable, GridInterface, GridButtonsInterface, Gr
     protected $linkableRows = false;
 
     /**
+     * Specify if extra column with checkbox and multiple select should be added
+     * and button to delete selected
+     *
+     * @var bool
+     */
+    protected $bulkDelete = true;
+
+    /**
      * The id of the grid. Many grids can exist on the same page, but the ID has to be unique
      *
      * @var string
@@ -393,6 +401,16 @@ abstract class Grid implements Htmlable, GridInterface, GridButtonsInterface, Gr
     public function allowsLinkableRows()
     {
         return $this->linkableRows;
+    }
+
+    /**
+     * If the grid gives ability for multiple seelction and delete selected
+     *
+     * @return bool
+     */
+    public function allowsBulkDelete()
+    {
+        return $this->bulkDelete;
     }
 
     /**

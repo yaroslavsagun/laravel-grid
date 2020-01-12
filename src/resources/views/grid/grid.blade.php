@@ -2,15 +2,17 @@
 @section('data')
     <div class="row">
         <div class="col-md-{{ $grid->getGridToolbarSize()[0] }}">
-            <button id="grid-select-all" type="button" class="btn btn-success" title="Select all items on page">
-                <i class="fa fa-square"></i>
-                Select All
-            </button>
+            @if ($grid->allowsBulkDelete())
+                <button id="grid-select-all" type="button" class="btn btn-success" title="Select all items on page">
+                    <i class="fa fa-square"></i>
+                    Select All
+                </button>
 
-            <a href="{{ $grid->getMultipleDeleteUrl() }}" id="grid-delete-selected" class="data-remote btn btn-danger disabled" data-trigger-pjax="1" data-trigger-confirm="1" data-bulk-action="1" data-pjax-target="#product-grid">
-                <i class="fa fa-trash-alt"></i>
-                Delete Selected
-            </a>
+                <a href="{{ $grid->getMultipleDeleteUrl() }}" id="grid-delete-selected" class="data-remote btn btn-danger disabled" data-trigger-pjax="1" data-trigger-confirm="1" data-bulk-action="1" data-pjax-target="#product-grid">
+                    <i class="fa fa-trash-alt"></i>
+                    Delete Selected
+                </a>
+            @endif
 
             @if($grid->shouldRenderSearchForm())
                 {!! $grid->renderSearchForm() !!}
@@ -52,7 +54,9 @@
         <table class="{{ $grid->getClass() }}">
             <thead class="{{ $grid->getHeaderClass() }}">
             <tr class="filter-header">
-                <th></th>
+                @if ($grid->allowsBulkDelete())
+                    <th></th>
+                @endif
                 @foreach($columns as $column)
 
                     @if($loop->first)
@@ -108,7 +112,9 @@
             </tr>
             @if($grid->shouldRenderGridFilters())
                 <tr>
-                    <td></td>
+                    @if ($grid->allowsBulkDelete())
+                        <td></td>
+                    @endif
                     {!! $grid->renderGridFilters() !!}
                 </tr>
             @endif
@@ -136,7 +142,9 @@
                         @endphp
                         <tr class="{{ $trClassCallback }}">
                             @endif
-                            <td class="selection"><input data-id="{{ $item->id }}" type="checkbox"/></td>
+                            @if ($grid->allowsBulkDelete())
+                                <td class="selection"><input data-id="{{ $item->id }}" type="checkbox"/></td>
+                            @endif
                             @foreach($columns as $column)
                                 @if($column->isLinkable())
                                     @php
@@ -182,17 +190,17 @@
                                     @endif
                                 @endif
                                 {{--@if($loop->last && $grid->hasButtons('rows'))--}}
-                                    {{--<td>--}}
-                                        {{--<div class="float-right">--}}
-                                            {{--@foreach($grid->getButtons('rows') as $button)--}}
-                                                {{--@if(call_user_func($button->renderIf, $grid->transformName(), $item))--}}
-                                                    {{--{!! $button->render(['gridName' => $grid->transformName(), 'gridItem' => $item]) !!}--}}
-                                                {{--@else--}}
-                                                    {{--@continue--}}
-                                                {{--@endif--}}
-                                            {{--@endforeach--}}
-                                        {{--</div>--}}
-                                    {{--</td>--}}
+                                {{--<td>--}}
+                                {{--<div class="float-right">--}}
+                                {{--@foreach($grid->getButtons('rows') as $button)--}}
+                                {{--@if(call_user_func($button->renderIf, $grid->transformName(), $item))--}}
+                                {{--{!! $button->render(['gridName' => $grid->transformName(), 'gridItem' => $item]) !!}--}}
+                                {{--@else--}}
+                                {{--@continue--}}
+                                {{--@endif--}}
+                                {{--@endforeach--}}
+                                {{--</div>--}}
+                                {{--</td>--}}
                                 {{--@endif--}}
                             @endforeach
                         </tr>
