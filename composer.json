@@ -23,7 +23,7 @@
     }
   ],
   "require": {
-    "laravel/framework": "^8.0"
+    "laravel/framework": "^9.0"
   },
   "suggest": {
     "maatwebsite/excel": "For exporting grid data as excel (~3.0)",
